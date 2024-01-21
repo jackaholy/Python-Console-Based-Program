@@ -3,7 +3,9 @@
 # After the key appears a timer will start and stop keeping track of how much time
 # it took for them to press that key.
 
-# Imports
+# The player can play through 4 levels and must stay under a certain time in order to
+# proceed to the next level.
+
 import time
 import random
 
@@ -32,6 +34,7 @@ def instructions():
 
 def end_game(total_game_time, level):
     median_time = total_game_time / len(levels)
+    # After they complete the game tell the player how much time they took.
     print(f"Fantastic! You completed each of the {level} levels with a total time of {total_game_time:.2f} seconds")
     print(f"Average time: {median_time:.2f} seconds")
 
@@ -40,15 +43,17 @@ def game_foundation(key_options, level):
     count = 0
     time_taken_for_level = 0.00
     total_game_time = 0.00
-    advance_level = False
-    while not advance_level and count < 5:
+    # The player must guess correctly 5 keys to proceed.
+    while count < 5:
         target_key = random.choice(key_options)
         print(f"Press the key: {target_key}")
 
+        # Start the timer when the target key appears on screen.
         start_time = time.time()
 
         user_input = input("Your guess: ")
 
+        # After they guess stop the timer and calculate the time it took for their guess.
         end_time = time.time()
         time_taken_for_guess = end_time - start_time
         # Check and see if the player presses the correct key.
@@ -62,7 +67,8 @@ def game_foundation(key_options, level):
             time_taken_for_level += time_taken_for_guess
             print("Incorrect! Try again.")
 
-        # Calculate if the player exceeded 10 seconds during their game
+        # Calculate if the player exceeded the seconds required to guess during the level.
+        # If they exceed the time limit have them try again.
         if time_taken_for_level > seconds_to_beat_level:
             print(f"Level {level} FAILED. You exceeded the time requirement.")
             input(f"Total time taken: {time_taken_for_level:.2f} sec"
@@ -108,7 +114,7 @@ def main():
     while True:
         instructions()
         total_game_time = 0.00
-        # Iterate through each of the levels in the levels list
+        # Iterate through each of the levels in the levels list.
         for level in levels:
             if level == 1:
                 total_game_time += easy_game(level)
@@ -120,9 +126,9 @@ def main():
                 total_game_time += expert_game(level)
             else:
                 print("\nInvalid option, please try again.")
-
+        # After the player finishes each of the levels proceed to the end game.
         end_game(total_game_time, level)
-
+        # Allow the player to play again or quit.
         play_again = input("Do you want to play again?\nEnter 'Y' to play again, Enter any other key to quit: ")
         if play_again.lower() != 'y':
             break
