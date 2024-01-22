@@ -1,10 +1,16 @@
-# A console based game in python where a certain keyboard key will appear on the
-# console and the player will have to type that key as quickly as possible.
-# After the key appears a timer will start and stop keeping track of how much time
-# it took for them to press that key.
+"""
+Created on Jan. 19, 2024
 
-# The player can play through 4 levels and must stay under a certain time in order to
-# proceed to the next level.
+A console based game in python where a certain keyboard key will appear on the
+console and the player will have to type that key as quickly as possible.
+After the key appears a timer will start and stop keeping track of how much time
+it took for them to press that key.
+
+The player can play through 4 levels and must stay under a certain time in order to
+proceed to the next level.
+
+@author jackholy
+"""
 
 import time
 import random
