@@ -27,14 +27,16 @@ def instructions():
           "fast as possible.")
     input("\nPress Enter to continue...\n")
     print(
-        f"Each level will have different keys that may appear: \n Easy:         abcdefghijklmnopqrstuvwxyz\n"
-        f" Intermediate: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n Hard:         bcdfghjklmnpqruvwxyzABCDEF"
-        f"GHIJKLMNOPQRSTUVWXYZ12345678901234567890\n Expert:       BCDFGHJKLMNPQRSTVWXYZ1234567890!@#$%^&*()`~-_=+[]\|;"
-        f":',.<>/?\n")
+        "Each level will have different keys that may appear: \n"
+        "Easy:\t\t\tabcdefghijklmnopqrstuvwxyz\n"
+        "Intermediate:\tabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\n"
+        "Hard:\t\t\tbcdfghjklmnpqrvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890\n"
+        "Expert:\t\t\tBCDFGHJKLMNPQRSTVWXYZ1234567890!@#$%^&*()`~-_=+[]{}\\|;:\'\",.<>/?\n")
     input("Press Enter to continue...\n")
     input(
         f"Press the appropriate series of keys within {seconds_to_beat_level} seconds in order to advance to the next "
-        f"level.\nAfter pressing a key you must press Enter to submit your guess"
+        "level.\n"
+        "After pressing a key you must press Enter to submit your guess"
         "\n\nPress Enter to begin level 1...\n")
 
 
@@ -42,7 +44,7 @@ def end_game(total_game_time, level):
     median_time = total_game_time / len(levels)
     # After they complete the game tell the player how much time they took.
     print(f"Fantastic! You completed each of the {level} levels with a total time of {total_game_time:.2f} seconds")
-    print(f"Average time: {median_time:.2f} seconds")
+    print(f"Average time: {median_time:.2f} seconds\n")
 
 
 def game_foundation(key_options, level):
@@ -94,7 +96,7 @@ def game_foundation(key_options, level):
     # If the user completed each of the levels just show time and allow them to continue to final screen.
     else:
         print(f"Level {level} complete! Total time taken: {time_taken_for_level:.2f} sec")
-        input(f"\nPress Enter to continue...\n")
+        input("\nPress Enter to continue...\n")
 
     return total_game_time
 
@@ -108,7 +110,7 @@ def intermediate_game(level):
 
 
 def hard_game(level):
-    return game_foundation("bcdfghjklmnpqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890", level)
+    return game_foundation("bcdfghjklmnpqrvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890", level)
 
 
 def expert_game(level):
