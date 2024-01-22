@@ -100,20 +100,20 @@ def game_foundation(key_options, level):
 
 
 def easy_game(level):
-    return game_foundation('abcdefghijklmnopqrstuvwxyz', level)
+    return game_foundation("abcdefghijklmnopqrstuvwxyz", level)
 
 
 def intermediate_game(level):
-    return game_foundation('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', level)
+    return game_foundation("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", level)
 
 
 def hard_game(level):
-    return game_foundation('bcdfghjklmnpqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890', level)
+    return game_foundation("bcdfghjklmnpqruvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890", level)
 
 
 def expert_game(level):
     return game_foundation(
-        'BCDFGHJKLMNPQRSTVWXYZ1234567890!@#$%^&*()`~-_=+[]{}\|;:'",.<>/?!@#$%^&*()`~-_=+[]{}\|;:',.<>/?", level)
+        "BCDFGHJKLMNPQRSTVWXYZ1234567890!@#$%^&*()`~-_=+[]{}\\|;:\'\",.<>/?!@#$%^&*()`~-_=+[]{}\\|;:\'\",.<>/?", level)
 
 
 def main():
