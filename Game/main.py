@@ -75,7 +75,7 @@ def game_foundation(key_options, level):
 
         # Calculate if the player exceeded the seconds required to guess during the level.
         # If they exceed the time limit have them try again.
-        if time_taken_for_level > seconds_to_beat_level:
+        if count > 4 and time_taken_for_level > seconds_to_beat_level:
             print(f"Level {level} FAILED. You exceeded the time requirement.")
             input(f"Total time taken: {time_taken_for_level:.2f} sec"
                   "\n\nPress Enter to try again...")
